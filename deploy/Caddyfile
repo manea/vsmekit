@@ -1,0 +1,12 @@
+{$VSMEKIT_DOMAIN:vsmekit.example.com} {
+	encode gzip zstd
+
+	header {
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "same-origin"
+		X-Frame-Options "SAMEORIGIN"
+		-Server
+	}
+
+	reverse_proxy 127.0.0.1:4225
+}

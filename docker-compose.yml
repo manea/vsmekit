@@ -1,0 +1,20 @@
+services:
+  vsmekit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vsmekit
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4225:4225"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 4225
+      VSMEKIT_DATA_DIR: /app/data
+      BASE_PATH: ${BASE_PATH:-}
+    volumes:
+      - vsmekit_data:/app/data
+
+volumes:
+  vsmekit_data:

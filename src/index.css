@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="esg-parchment"] {
+  --bg-canvas: #F7F8F5;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #EDF1EC;
+  --bg-soft: rgba(21, 122, 82, 0.09);
+  --border-subtle: #DCE3DC;
+  --border-strong: #94A3B8;
+  --text-primary: #112433;
+  --text-secondary: #475569;
+  --accent-primary: #157A52;
+  --accent-primary-hover: #0E603F;
+  --accent-primary-fg: #FFFFFF;
+  --accent-cobalt: #1D4ED8;
+  --accent-cobalt-soft: rgba(29, 78, 216, 0.10);
+  --accent-emerald: #157A52;
+  --accent-emerald-soft: rgba(21, 122, 82, 0.11);
+  --accent-amber: #B45309;
+  --accent-amber-soft: rgba(180, 83, 9, 0.12);
+  --accent-crimson: #B91C1C;
+  --accent-crimson-fg: #FFFFFF;
+  --accent-crimson-soft: rgba(185, 28, 28, 0.11);
+  --shadow-card: 0 12px 28px -16px rgba(17, 36, 51, 0.12);
+}
+
+[data-theme="carbon-slate"] {
+  --bg-canvas: #0A131C;
+  --bg-surface: #101D2A;
+  --bg-elevated: #17293B;
+  --bg-soft: rgba(52, 211, 153, 0.15);
+  --border-subtle: #23384D;
+  --border-strong: #466380;
+  --text-primary: #E8F0EE;
+  --text-secondary: #A6B8C8;
+  --accent-primary: #34D399;
+  --accent-primary-hover: #6EE7B7;
+  --accent-primary-fg: #062118;
+  --accent-cobalt: #60A5FA;
+  --accent-cobalt-soft: rgba(96, 165, 250, 0.16);
+  --accent-emerald: #34D399;
+  --accent-emerald-soft: rgba(52, 211, 153, 0.16);
+  --accent-amber: #FBBF24;
+  --accent-amber-soft: rgba(251, 191, 36, 0.16);
+  --accent-crimson: #F87171;
+  --accent-crimson-fg: #1F0709;
+  --accent-crimson-soft: rgba(248, 113, 113, 0.16);
+  --shadow-card: 0 18px 40px -16px rgba(0, 0, 0, 0.72);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .vsme-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  .num-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .vsme-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+  }
+
+  .vsme-input {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    color: var(--text-primary);
+    border-radius: 0.6rem;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.875rem;
+    width: 100%;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .vsme-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--bg-soft);
+  }
+}
+
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only-sheet {
+    box-shadow: none !important;
+    border-color: #CBD5E1 !important;
+  }
+}

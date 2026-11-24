@@ -1,0 +1,14 @@
+[Unit]
+Description=VSMEKit EU VSME ((EU) 2026/1560) & 2027 Value-Chain Cap Readiness Studio
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/vsmekit
+EnvironmentFile=/etc/vsmekit/.env
+ExecStart=/usr/bin/node --no-warnings /opt/vsmekit/server/index.mjs
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
